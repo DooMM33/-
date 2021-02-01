@@ -3,19 +3,25 @@
     <img class="title" src="@/assets/img/spinning/spiningtitle.png" alt="">
     <img class="spinning" src="@/assets/img/spinning/spinning.png" alt="" >
     <img class="click" src="@/assets/img/spinning/clickstart.png" alt="">
+
   </div>
 </template>
 
 <script>
+
 export default {
-name: "MainPic"
+name: "MainPic",
+  components:{
+  }
 }
 </script>
 
 <style scoped>
+
 .mainpic{
   position: relative;
 }
+
 .title{
   display: flex;
   margin: 0 auto;

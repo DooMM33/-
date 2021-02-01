@@ -1,6 +1,8 @@
 <template>
   <div class="tabcontrol">
-    <div class="tab-control-item" v-for="item in showmess">
+    <div class="tab-control-item" v-for="(item,index) in showmess"
+          :class="{active:index===currentIndex}"
+          @click="tabClick(index)">
       <span>{{item}}</span>
     </div>
   </div>
@@ -9,12 +11,24 @@
 <script>
 export default {
   name: "TabBar",
+  data(){
+    return {
+      currentIndex:0,
+      active:false
+    }
+  },
   props:{
     showmess:{
       type:Array,
       default(){
         return []
       }
+    }
+  },
+  methods:{
+    tabClick(index){
+      this.currentIndex=index
+      this.$emit('tabclick',index)
     }
   }
 }
@@ -33,7 +47,11 @@ export default {
     flex: 1;
   }
   .tab-control-item span{
-    padding: 5px;
+    padding: 7px;
     color:#ffffff;
+  }
+  .active span{
+    color:orange;
+    border-bottom: 4px solid red;
   }
 </style>
